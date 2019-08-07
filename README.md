@@ -1,5 +1,4 @@
 # ShNeigh
-ShNeigh code
 
 [posMatrix,retVals]=ShNeigh(heatmapMatrix,method_type)
 
