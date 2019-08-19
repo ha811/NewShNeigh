@@ -1,6 +1,6 @@
 # ShNeigh
 
-Usage:
+#Usage:
 
 [posMatrix,retVals]=ShNeigh(heatmapMatrix,method_type)
 
