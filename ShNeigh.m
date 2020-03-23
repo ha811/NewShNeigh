@@ -8,6 +8,7 @@ sig_in=n*0.023;
 cover=(nnz(rMat)-n)/n/(n-1);
 rho_in=max((1-cover)*sqrt(n),min(3,0.2*sqrt(n)));
 
+FreqMat=rMat;
 if method_type==1  %Gaussian neighboring matrix,fixed alpha,fixed rho,fixed sigma
     [error_term,XYZ]=shNeigh_knownParams(FreqMat,selbin,alpha_in,rho_in,sig_in,1);
     retVals.alpha=alpha_in;
