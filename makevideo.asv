@@ -1,0 +1,11 @@
+h = openfig('/Users/hanayaren/Desktop/GEM-FISH-master/Chr21_modeling_results/model_chr21_plot.fig');
+% 動画ファイルの保存
+v = VideoWriter('ShNeigh_1000000.mp4','MPEG-4');
+open(v);
+for n = 1:3:360
+    view([n, 30]);
+    drawnow; % 描画更新(※)
+    frame = getframe(h);
+    writeVideo(v,frame);
+end
+close(v);

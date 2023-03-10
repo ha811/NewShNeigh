@@ -6,12 +6,12 @@ heatmapMatrix=heatmapMatrix(selbin,:);
 heatmapMatrix=heatmapMatrix(:,selbin);
 
 FreqMat=heatmapMatrix;
-[num_parts,comps]=graphconncomp(sparse(FreqMat),'Weak', 1);
+[num_parts,comps]=conncomp(digraph(FreqMat),'Type', 'weak');
 %%make sure connected   
 if num_parts>1
     compstat=tabulate(comps);
     [cm,ci]=max(compstat(:,2));
-    finalbin= comps==ci;
+    finalbin=comps==ci;
     selbinIdx=selbinIdx(finalbin);
     FreqMat=FreqMat(finalbin,finalbin);
     selbin=false(n,1);
