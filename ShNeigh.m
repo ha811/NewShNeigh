@@ -1,4 +1,4 @@
-function [posMatrix,retVals]=ShNeigh(heatmapMatrix,method_type)
+function [posMatrix,retVals, shMat]=ShNeigh(heatmapMatrix,method_type)
 tic;
 alpha_in = 1.0;
 [rMat,selbin]=matFilter(heatmapMatrix);
@@ -10,7 +10,7 @@ rho_in=max((1-cover)*sqrt(n),min(3,0.2*sqrt(n)));
 
 FreqMat=rMat;
 if method_type==1  %Gaussian neighboring matrix,fixed alpha,fixed rho,fixed sigma
-    [error_term,XYZ]=shNeigh_knownParams(FreqMat,selbin,alpha_in,rho_in,sig_in,1);
+    [error_term,XYZ, shMat]=shNeigh_knownParams(FreqMat,selbin,alpha_in,rho_in,sig_in,1);
     retVals.alpha=alpha_in;
     retVals.rho=rho_in;
     retVals.sig=sig_in;
